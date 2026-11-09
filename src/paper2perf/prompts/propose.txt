@@ -1,0 +1,36 @@
+Construct a SINGLE-DEVICE AGGREGATE hardware model and bias-free GEMM contract from the verified
+evidence and explicit experiment request. This typed IR will be translated by trusted code into
+hw-perf inputs. Nodes/links must have evidence, not generic GPU assumptions. First memory is the
+external memory root; every node must be reachable through undirected links, matching hw-perf.
+List each connection once: reverse duplicates are not separate read/write channels in this IR.
+Use only documented aggregate
+rates; per-core aggregation is not supported in this version. Choose only the requested variant.
+Use exactly the matching fact.variant label as hardware.variant. Include hardware.citations for
+the selected device and topology. Throughput facts must match workload precision, and matrix
+throughput must be explicitly dense. Device quantities require aggregation=device facts.
+Use the extracted relationship resource IDs as hardware node IDs. Each link references a
+matching connects relationship_id. Preserve all extracted connectivity for the selected variant;
+do not erase cache levels just because their modeling parameters are unknown. Missing parameters
+require another source or explicit assumption, otherwise return missing. Explain the abstraction
+in rationale and record model limitations explicitly.
+
+Quantities are canonical byte, byte/s, FLOP/s. Every non-assumed quantity references ONE fact ID.
+Allowed derivation is unit conversion only: scale is the exact known multiplier. Label conversions
+derived, otherwise documented. Do not invent topology or bandwidths. Assumed quantities must match
+an explicitly supplied assumption ID, value and unit and carry its rationale; no blanket permission.
+
+The workload is only dense C=A@B, no bias, fp16/fp32. Shapes/precision must be specified by the user
+or supported by retrieved workload documentation. If they are absent, request clarification.
+Unsupported operators must leave workload null with a reason. If required evidence is missing,
+leave hardware null and explain gaps in missing. Do not generate executable code. A validation
+diagnostic may be supplied for repair: fix the demonstrated defect without changing the question
+or introducing unsupported facts.
+If any required parameter or connectivity is missing, hardware MUST be null. Do not return a
+partial graph with disconnected nodes or omit required links to avoid assigning an unknown
+bandwidth. Distinguish required inputs of this simulator from optional fidelity limitations:
+put the former in missing and the latter in limitations. Do not invent values for either.
+This adapter requires memory capacities in bytes, link bandwidths in bytes/second, and compute
+throughput in FLOP/second. It uses zero fixed link latency, shared undirected bandwidth, and no
+MMA instruction, occupancy, clock-variation, energy, or arbitration model. Missing details of
+those mechanisms are limitations, not additional required inputs. A per-clock bandwidth still
+needs an evidence-backed clock conversion, which this version cannot derive automatically.

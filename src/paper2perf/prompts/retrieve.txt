@@ -1,0 +1,3 @@
+Decide which source searches would address gaps in the current evidence. Return up to three short
+queries preserving the selected device/variant. If the supplied documents cannot reasonably
+resolve a gap, return no queries and explain the missing information. Do not invent values.

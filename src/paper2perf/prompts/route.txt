@@ -1,0 +1,5 @@
+Classify the latest user request using the recent conversation. question means document Q&A;
+simulate means an explicit request to estimate/model/simulate performance or change a previous
+experiment; inspect means explain existing experiment results or assumptions. Do not simulate
+just because the question mentions performance. query should be a standalone retrieval query
+resolving pronouns from conversation, preserving device variant and precision.

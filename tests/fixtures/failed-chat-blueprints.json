@@ -1,0 +1,312 @@
+[
+  {
+    "name": "A100 SXM4 dense FP16 GEMM aggregate blueprint",
+    "variant": "a100_sxm4",
+    "memories": [
+      {
+        "id": "hbm2_device_memory",
+        "capacity": {
+          "fact_id": null,
+          "count_fact_id": null,
+          "clock_fact_id": null,
+          "assumption_id": null
+        }
+      },
+      {
+        "id": "l2_cache",
+        "capacity": {
+          "fact_id": "cache_capacity_l2",
+          "count_fact_id": null,
+          "clock_fact_id": null,
+          "assumption_id": null
+        }
+      },
+      {
+        "id": "shared_memory",
+        "capacity": {
+          "fact_id": "cache_capacity_l1_shared",
+          "count_fact_id": "sm_count",
+          "clock_fact_id": null,
+          "assumption_id": null
+        }
+      }
+    ],
+    "computes": [
+      {
+        "id": "a100_sm",
+        "kind": "matrix",
+        "throughput": {
+          "fact_id": "compute_throughput_fp16_dense",
+          "count_fact_id": null,
+          "clock_fact_id": null,
+          "assumption_id": null
+        }
+      }
+    ],
+    "links": [
+      {
+        "source": "hbm2_device_memory",
+        "target": "l2_cache",
+        "relationship_id": "hbm_to_l2",
+        "bandwidth": {
+          "fact_id": "memory_bandwidth",
+          "count_fact_id": null,
+          "clock_fact_id": null,
+          "assumption_id": null
+        },
+        "topology_basis": "documented"
+      },
+      {
+        "source": "a100_sm",
+        "target": "shared_memory",
+        "relationship_id": "sm_to_shared_async",
+        "bandwidth": {
+          "fact_id": null,
+          "count_fact_id": null,
+          "clock_fact_id": null,
+          "assumption_id": null
+        },
+        "topology_basis": "documented"
+      },
+      {
+        "source": "l1_cache",
+        "target": "shared_memory",
+        "relationship_id": "l1_to_smem_combined",
+        "bandwidth": {
+          "fact_id": null,
+          "count_fact_id": null,
+          "clock_fact_id": null,
+          "assumption_id": null
+        },
+        "topology_basis": "documented"
+      }
+    ],
+    "workload": {
+      "operator": "gemm",
+      "M": 256,
+      "N": 256,
+      "K": 256,
+      "dtype": "fp16",
+      "bias": false,
+      "description": "C = A x B, A and B both 256x256, dense FP16, no bias, on A100 SXM4",
+      "basis": "user_request"
+    },
+    "proxy_bandwidth_fact_id": "memory_bandwidth",
+    "missing": [],
+    "blockers": [],
+    "resource_bindings": [],
+    "rationale": "Dense FP16 (FP32-accumulate) device peak of 312 TFLOP/s is assigned to the single selected compute resource a100_sm, which is the source connectivity compute node (SM); the device-wide rate is used for the aggregate single-device model. External HBM2 memory is the first level, with the documented 40 MB L2 and the documented per-SM combined L1/shared pool. The combined L1/SMEM fact (192 KB/SM, scope explicitly a combined L1+SM pool) is used with the product SM count (108) via count_fact_id rather than the 164 KB maximum SMEM allocation, which is a configuration-scope limitation. The hbm-proxy policy is active, so unresolved link rates on sm->shared and l1->shared are preserved as null references and resolved by the selected device memory-bandwidth fact rather than fabricated. Sparse 624 TFLOP/s is excluded as a different mode. Total device memory capacity is not source-confirmed for this product, so no capacity fact is referenced. No SM-to-L2 or SM-to-HBM link relationship was extracted, so none is fabricated; link endpoints match their cited relationship resource IDs.",
+    "limitations": [
+      "Dense FP16 peak uses the documented FP16 Tensor Core with FP32 accumulate; accumulator-type timing differences are not separately simulated.",
+      "SM-to-shared-memory and L1-to-shared-memory link bandwidths are not source-documented and are compiled via the explicit hbm-proxy policy.",
+      "No SM-to-L2 or SM-to-HBM connection relationship was extracted, so those physical paths are not modeled.",
+      "HBM2/DRAM and L2 fixed access latency are not modeled.",
+      "SM tile/wave scheduling and MMA instruction timing are not modeled; hw-perf constructs a schedule.",
+      "Register-file bandwidth, occupancy, and cache-hit ratios are not modeled.",
+      "Maximum configurable SMEM (164 KB/SM) is treated as a configuration limitation; the combined 192 KB/SM L1+SM pool is modeled.",
+      "Total A100 device memory capacity is not corroborated for this product and is not referenced.",
+      "The full-die GA100 configuration (128 SMs/640 Tensor Cores) is a different scope and is excluded in favor of the 108-SM shipping product."
+    ]
+  },
+  {
+    "name": "A100 SXM4 dense FP16 GEMM aggregate blueprint",
+    "variant": "a100_sxm4",
+    "memories": [
+      {
+        "id": "hbm2_device_memory",
+        "capacity": {
+          "fact_id": null,
+          "count_fact_id": null,
+          "clock_fact_id": null,
+          "assumption_id": null
+        }
+      },
+      {
+        "id": "l2_cache",
+        "capacity": {
+          "fact_id": "cache_capacity_l2",
+          "count_fact_id": null,
+          "clock_fact_id": null,
+          "assumption_id": null
+        }
+      },
+      {
+        "id": "shared_memory",
+        "capacity": {
+          "fact_id": "cache_capacity_l1_shared",
+          "count_fact_id": "sm_count",
+          "clock_fact_id": null,
+          "assumption_id": null
+        }
+      }
+    ],
+    "computes": [
+      {
+        "id": "a100_sm",
+        "kind": "matrix",
+        "throughput": {
+          "fact_id": "compute_throughput_fp16_dense",
+          "count_fact_id": null,
+          "clock_fact_id": null,
+          "assumption_id": null
+        }
+      }
+    ],
+    "links": [
+      {
+        "source": "hbm2_device_memory",
+        "target": "l2_cache",
+        "relationship_id": "hbm_to_l2",
+        "relationship_ids": [],
+        "bandwidth": {
+          "fact_id": "memory_bandwidth",
+          "count_fact_id": null,
+          "clock_fact_id": null,
+          "assumption_id": null
+        },
+        "topology_basis": "documented"
+      },
+      {
+        "source": "a100_sm",
+        "target": "shared_memory",
+        "relationship_id": "sm_to_shared_async",
+        "relationship_ids": [],
+        "bandwidth": {
+          "fact_id": null,
+          "count_fact_id": null,
+          "clock_fact_id": null,
+          "assumption_id": null
+        },
+        "topology_basis": "documented"
+      }
+    ],
+    "workload": {
+      "operator": "gemm",
+      "M": 256,
+      "N": 256,
+      "K": 256,
+      "dtype": "fp16",
+      "bias": false,
+      "description": "C = A x B, A and B both 256x256, dense FP16, no bias, on A100 SXM4",
+      "basis": "user_request",
+      "citations": []
+    },
+    "proxy_bandwidth_fact_id": "memory_bandwidth",
+    "missing": [],
+    "blockers": [],
+    "resource_bindings": [],
+    "rationale": "Dense FP16 (FP32-accumulate) device peak of 312 TFLOP/s is assigned to the single selected compute resource a100_sm, the source connectivity compute node; the device-wide rate is used for the aggregate single-device model. External HBM2 is the first level, with the documented 40 MB L2 and the documented per-SM combined L1/shared pool. The combined L1/SMEM fact (192 KB/SM, scope explicitly a combined L1+SM pool) is used with the product SM count (108) via count_fact_id rather than the 164 KB maximum SMEM allocation, which is a configuration-scope limitation. The hbm-proxy policy is active, so the unresolved sm->shared link rate is preserved as a null reference and resolved by the selected device memory-bandwidth fact rather than fabricated. Sparse 624 TFLOP/s is excluded as a different mode. Total device memory capacity is not source-confirmed for this product, so no capacity fact is referenced. The l1_cache node is not modeled: it has no documented contained memory boundary and no source-backed capacity fact distinct from the combined L1/SMEM pool, so the l1_to_smem_combined relationship is not represented as a separate physical link (it is a description of the combined block, not a bandwidth channel). No SM-to-L2 or SM-to-HBM link relationship was extracted, so none is fabricated; link endpoints match their cited relationship resource IDs.",
+    "limitations": [
+      "Dense FP16 peak uses the documented FP16 Tensor Core with FP32 accumulate; accumulator-type timing differences are not separately simulated.",
+      "SM-to-shared-memory link bandwidth is not source-documented and is compiled via the explicit hbm-proxy policy.",
+      "No SM-to-L2 or SM-to-HBM connection relationship was extracted, so those physical paths are not modeled.",
+      "HBM2/DRAM and L2 fixed access latency are not modeled.",
+      "SM tile/wave scheduling and MMA instruction timing are not modeled; hw-perf constructs a schedule.",
+      "Register-file bandwidth, occupancy, and cache-hit ratios are not modeled.",
+      "Maximum configurable SMEM (164 KB/SM) is treated as a configuration limitation; the combined 192 KB/SM L1+SM pool is modeled.",
+      "The standalone l1_cache resource is not modeled as a separate node; the combined L1/SMEM pool is represented by shared_memory.",
+      "Total A100 device memory capacity is not corroborated for this product and is not referenced.",
+      "The full-die GA100 configuration (128 SMs/640 Tensor Cores) is a different scope and is excluded in favor of the 108-SM shipping product."
+    ]
+  },
+  {
+    "name": "A100 SXM4 dense FP16 GEMM aggregate blueprint",
+    "variant": "a100_sxm4",
+    "memories": [
+      {
+        "id": "hbm2_device_memory",
+        "capacity": {
+          "fact_id": null,
+          "count_fact_id": null,
+          "clock_fact_id": null,
+          "assumption_id": null
+        }
+      },
+      {
+        "id": "l2_cache",
+        "capacity": {
+          "fact_id": "cache_capacity_l2",
+          "count_fact_id": null,
+          "clock_fact_id": null,
+          "assumption_id": null
+        }
+      },
+      {
+        "id": "shared_memory",
+        "capacity": {
+          "fact_id": "cache_capacity_l1_shared",
+          "count_fact_id": "sm_count",
+          "clock_fact_id": null,
+          "assumption_id": null
+        }
+      }
+    ],
+    "computes": [
+      {
+        "id": "a100_sm",
+        "kind": "matrix",
+        "throughput": {
+          "fact_id": "compute_throughput_fp16_dense",
+          "count_fact_id": null,
+          "clock_fact_id": null,
+          "assumption_id": null
+        }
+      }
+    ],
+    "links": [
+      {
+        "source": "hbm2_device_memory",
+        "target": "l2_cache",
+        "relationship_id": "hbm_to_l2",
+        "relationship_ids": [],
+        "bandwidth": {
+          "fact_id": "memory_bandwidth",
+          "count_fact_id": null,
+          "clock_fact_id": null,
+          "assumption_id": null
+        },
+        "topology_basis": "documented"
+      },
+      {
+        "source": "a100_sm",
+        "target": "shared_memory",
+        "relationship_id": "sm_to_shared_async",
+        "relationship_ids": [],
+        "bandwidth": {
+          "fact_id": null,
+          "count_fact_id": null,
+          "clock_fact_id": null,
+          "assumption_id": null
+        },
+        "topology_basis": "documented"
+      }
+    ],
+    "workload": {
+      "operator": "gemm",
+      "M": 256,
+      "N": 256,
+      "K": 256,
+      "dtype": "fp16",
+      "bias": false,
+      "description": "C = A x B, A and B both 256x256, dense FP16, no bias, on A100 SXM4",
+      "basis": "user_request",
+      "citations": []
+    },
+    "proxy_bandwidth_fact_id": "memory_bandwidth",
+    "missing": [],
+    "blockers": [],
+    "resource_bindings": [],
+    "rationale": "Single selected variant a100_sxm4. The device-wide dense FP16 (FP32-accumulate) peak 312 TFLOP/s is assigned to the source compute resource a100_sm (the SM/compute resource in the documented gpu_contains_sms connectivity); no separate Tensor-Core node fabricated. Memory hierarchy: external HBM2 first, documented 40 MB device L2, and documented combined per-SM L1+shared pool. Combined L1/SMEM capacity (cache_capacity_l1_shared, 192 KB/SM, scope explicitly combined pool) is used with count_fact_id=sm_count (108) rather than the 164 KB maximum SMEM allocation (configuration-scope limitation). hbm-proxy policy is active: the documented hbm_to_l2 link uses memory_bandwidth; the sm->shared link has no documented rate and is preserved with null bandwidth for the compiler to resolve via the proxy. Endpoints match cited relationship resource IDs. The l1_cache node is not modeled separately: it has no documented contained memory boundary or distinct capacity fact beyond the combined pool, so l1_to_smem_combined is a description of the combined block, not a separate bandwidth channel; no resource_bindings needed because a100_sm is a modeled compute node. Legacy missing items reclassified: device total capacity -> limitation (not source-confirmed for this product); L1 standalone bandwidth / shared-memory bandwidth / fixed latencies / per-op timing -> limitations (not modeled) and, for local-memory rate, retained as unresolved null link under explicit hbm-proxy. Sparse 624 TFLOP/s excluded as a different mode.",
+    "limitations": [
+      "Dense FP16 peak uses documented FP16 Tensor Core with FP32 accumulate; accumulator-type timing differences are not separately simulated.",
+      "SM-to-shared-memory link rate is not source-documented; preserved as a null reference and compiled via the explicit hbm-proxy policy.",
+      "Maximum configurable SMEM (164 KB/SM) is treated as a configuration limitation; the combined 192 KB/SM L1+SM pool is modeled.",
+      "No SM-to-L2 or SM-to-HBM connection relationship was extracted; those paths are not modeled.",
+      "HBM2/DRAM and L2 fixed access latency are not modeled.",
+      "Standalone L1 cache is not modeled as a separate node; represented within the combined L1/SMEM pool.",
+      "Total A100 device memory capacity is not corroborated for this product and is not referenced.",
+      "SM tile/wave scheduling, MMA instruction timing, register-file bandwidth, occupancy, and cache-hit ratios are not modeled; hw-perf constructs a schedule.",
+      "The full-die GA100 configuration (128 SMs / 640 Tensor Cores) is a different scope and excluded in favor of the 108-SM shipping product."
+    ]
+  }
+]

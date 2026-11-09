@@ -1,0 +1,164 @@
+{
+  "source_archive": "hw-perf(3).zip",
+  "archive_sha256": "d060811462e1b3d1aab50a44dacbc15706453caf8ec61819db702127d0a448d8",
+  "upstream_commit": null,
+  "note": "Copied byte-for-byte from the user-supplied archive. No Git metadata or root/core package license was included. Only the three runtime packages are included; unrelated simulator subprojects and internal planning documents are omitted.",
+  "files": [
+    {
+      "path": "mapper/src/dataflow_mapper/__init__.py",
+      "sha256": "1d0ac245a91d5f02b4055a5694d3335a174239c2e045ba71d5f3178734fb2d47"
+    },
+    {
+      "path": "mapper/src/dataflow_mapper/execution.py",
+      "sha256": "bd54c5076b7f19de8a1b9528f2ac3f21e4322b6d896747d62b0d0fe7a051ff42"
+    },
+    {
+      "path": "mapper/src/dataflow_mapper/heft.py",
+      "sha256": "2232663fe87cd6d0641233b2dd3f997e2e57e89683317f1d03123891be5e7378"
+    },
+    {
+      "path": "mapper/src/dataflow_mapper/placement.py",
+      "sha256": "7527b77eb315dae8b76787516a2cba632eaa3000ad8fb18aad7aabccb3b049d5"
+    },
+    {
+      "path": "mapper/src/dataflow_mapper/routing.py",
+      "sha256": "fb84f9beadf99f26edfe0d793f43f4f04b443038bd544a3f5041d47c54498cea"
+    },
+    {
+      "path": "mapper/src/dataflow_mapper/scheduling/__init__.py",
+      "sha256": "9917152c9a083b036ebce8b4ddbe50b5690778945a2c557ce55d5e41e6490219"
+    },
+    {
+      "path": "mapper/src/dataflow_mapper/scheduling/fx.py",
+      "sha256": "ac73172a32e2b99b63c3c5adab177dbcdbe4945e589cfe9ae3a25412757fa5ca"
+    },
+    {
+      "path": "mapper/src/dataflow_mapper/scheduling/global_storage.py",
+      "sha256": "0a6668a143382fb2145f53a656f659f15a553c9821ebe33c85c9c0bf5c4b5e86"
+    },
+    {
+      "path": "mapper/src/dataflow_mapper/scheduling/hierarchical.py",
+      "sha256": "611d7fc6d9c203f355011ee9df3545b64a708365a8326a7fb0706d4cd8cf2fff"
+    },
+    {
+      "path": "mapper/src/dataflow_mapper/scheduling/model.py",
+      "sha256": "4380bd3f56d25b1144c7d29c281596cbefb00f05d615156a84976d012d96730c"
+    },
+    {
+      "path": "mapper/src/dataflow_mapper/scheduling/modulo.py",
+      "sha256": "fb5b37e9657c9ec742e29da58827756f1a0f61ff7289b8253e6b1edabb97411a"
+    },
+    {
+      "path": "mapper/src/dataflow_mapper/viz/__init__.py",
+      "sha256": "d78cce423081ea990c8c1896bfcfa829592709ee5733360e613b3ed788560bc0"
+    },
+    {
+      "path": "mapper/src/dataflow_mapper/viz/adapters.py",
+      "sha256": "58b98d5c7d3b5a7ab6b75af78269764527b4e987773f45cf32548b5d4cc93ee1"
+    },
+    {
+      "path": "mapper/src/dataflow_mapper/viz/gantt.py",
+      "sha256": "218f05a5d2ae790f4c5595f08c314976ae6c26621a64cfacb79756adbfeb3e6e"
+    },
+    {
+      "path": "mapper/src/dataflow_mapper/viz/graphviz.py",
+      "sha256": "c7d90486900a7479b76fc59c12a9e432df14db0296c96c111ede917c7f4e6ffe"
+    },
+    {
+      "path": "mapper/src/dataflow_mapper/viz/html.py",
+      "sha256": "9b652de0751f759494f75760fe9d8be3b345922def315c0ac1da0ec610ea2bde"
+    },
+    {
+      "path": "mapper/src/dataflow_mapper/viz/schema.py",
+      "sha256": "8dd6e456901ae6c1bcfb6f3a1bf70bc72111fad5bbda32b6b3758a5f7aecfaf1"
+    },
+    {
+      "path": "mapper/src/dataflow_mapper/viz/trace.py",
+      "sha256": "61236a67812d5d968e455d3a122d8e917d3e4a75a7aa0a390b8b808fa5d9999d"
+    },
+    {
+      "path": "hardware_model/src/hw_model/__init__.py",
+      "sha256": "d512142d97c79d7f63c709cca07e124b4884181992db4fbad223a916d5acf627"
+    },
+    {
+      "path": "hardware_model/src/hw_model/model.py",
+      "sha256": "43cdb3f9529dd20d09d1af622292a21ae62676996bee797fc649867fc00aa9e4"
+    },
+    {
+      "path": "software_model/parabolic/src/parabolic/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "software_model/parabolic/src/parabolic/annotate.py",
+      "sha256": "6919172e392352a0ab0b1fa99ff1ee9b4b04974df52d40e7a6d76f1d801693b2"
+    },
+    {
+      "path": "software_model/parabolic/src/parabolic/concretize.py",
+      "sha256": "1ae95e1f644ef66607d8f8684ce00926219aeb3e9457840926a6282c33f7cf56"
+    },
+    {
+      "path": "software_model/parabolic/src/parabolic/counter.py",
+      "sha256": "5d0f8088d036c8208962f9c8aa9546cab2bd820b165f004c6e55021500b44ce2"
+    },
+    {
+      "path": "software_model/parabolic/src/parabolic/dataflow/__init__.py",
+      "sha256": "268a037995814244a0d4575139df802f24937d4132a248e6e698a28d2b0ddaec"
+    },
+    {
+      "path": "software_model/parabolic/src/parabolic/dataflow/costs.py",
+      "sha256": "a52d80311a2541df1420e3673d0d634696c2ae3d1b6b5af8dae69601db134392"
+    },
+    {
+      "path": "software_model/parabolic/src/parabolic/dataflow/frontend/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "software_model/parabolic/src/parabolic/dataflow/frontend/pytorch.py",
+      "sha256": "b68753cd03fbc4e250c5d19081cf56bbc24f0b6f01ad85f28977514ec0b7200b"
+    },
+    {
+      "path": "software_model/parabolic/src/parabolic/flop_algebra.py",
+      "sha256": "77e269b0c473543f3cb2b84cb1f0d0fc58053853dd8767834459e74ae316c2f8"
+    },
+    {
+      "path": "software_model/parabolic/src/parabolic/ideal_collective.py",
+      "sha256": "2f67e1a07b04705b318212d5c5097405c343856664d4f013e3b83fabe3dee8ae"
+    },
+    {
+      "path": "software_model/parabolic/src/parabolic/parallel_model.py",
+      "sha256": "75a8c06a253bbe9ac608c4ba931928c23b916cd47d33abaaf9c8d3f4fa2f6d25"
+    },
+    {
+      "path": "software_model/parabolic/src/parabolic/symbol.py",
+      "sha256": "b566b963c2e12a7dc697b06d8044be14b447af5f37edc3859b467a50665d2bd8"
+    },
+    {
+      "path": "software_model/parabolic/src/parabolic/symbolic_model.py",
+      "sha256": "17ae762c7ca253711400c0b957277b7875ef777f7eb697f96a6e38d5752ca094"
+    },
+    {
+      "path": "software_model/parabolic/src/parabolic/viz.py",
+      "sha256": "fb9f1f05e5b4f25fb2635f98015146146c2797a0f32393bc41cefafff3454486"
+    },
+    {
+      "path": "mapper/README.md",
+      "sha256": "1d85c3c9cdcca545b510ad54ebd08420a8319597ccbcf7d2d2b2a113dd439fa2"
+    },
+    {
+      "path": "mapper/pyproject.toml",
+      "sha256": "eb216d9b4b4a6e2c0e8f27523b60570ec1397428abf3269704e752ec8c53cb91"
+    },
+    {
+      "path": "hardware_model/pyproject.toml",
+      "sha256": "a039923f13b24deb0774ddc63a280d547b7dab0891d322a1bf5438d82a470dcb"
+    },
+    {
+      "path": "software_model/parabolic/README.md",
+      "sha256": "1f531c280637b742bf729a31a9cc23bbb4f21df8a9d81f0a43849488941a4fd6"
+    },
+    {
+      "path": "software_model/parabolic/pyproject.toml",
+      "sha256": "97c1cb1071ea2135bf27986de06d7abb014243c22bf089fcab5e840baea9f845"
+    }
+  ]
+}

@@ -1,0 +1,333 @@
+{
+  "facts": [
+    {
+      "id": "sm_count",
+      "parameter": "sm_count",
+      "value": 108.0,
+      "unit": "SMs",
+      "scope": "A100 SXM4 shipping product",
+      "variant": "a100_sxm4",
+      "precision": "unspecified",
+      "mode": "unspecified",
+      "aggregation": "device",
+      "citations": [
+        {
+          "chunk_id": "80b8d60d58f74ec288d4142fee1e4eed-p20-c0",
+          "quote": "GA100 Full GPU with 128 SMs (A100 Tensor Core GPU has 108"
+        },
+        {
+          "chunk_id": "80b8d60d58f74ec288d4142fee1e4eed-p36-c0",
+          "quote": "SMs                         56                80                108"
+        }
+      ]
+    },
+    {
+      "id": "tensor_cores_per_sm",
+      "parameter": "tensor_cores_per_sm",
+      "value": 4.0,
+      "unit": "Tensor Cores/SM",
+      "scope": "A100 SM",
+      "variant": "a100_sxm4",
+      "precision": "unspecified",
+      "mode": "unspecified",
+      "aggregation": "component",
+      "citations": [
+        {
+          "chunk_id": "80b8d60d58f74ec288d4142fee1e4eed-p20-c0",
+          "quote": "A100 has four Tensor Cores per SM, which together deliver 1024 dense FP16/FP32 FMA operations per clock"
+        },
+        {
+          "chunk_id": "80b8d60d58f74ec288d4142fee1e4eed-p36-c0",
+          "quote": "Tensor Cores / SM            NA                8                     4\u00b2"
+        }
+      ]
+    },
+    {
+      "id": "tensor_cores_total",
+      "parameter": "tensor_cores_per_device",
+      "value": 432.0,
+      "unit": "Tensor Cores",
+      "scope": "A100 Tensor Core GPU",
+      "variant": "a100_sxm4",
+      "precision": "unspecified",
+      "mode": "unspecified",
+      "aggregation": "device",
+      "citations": [
+        {
+          "chunk_id": "80b8d60d58f74ec288d4142fee1e4eed-p24-c0",
+          "quote": "the NVIDIA A100 Tensor Core GPU with its 108 SMs includes a total of 432 Tensor Cores"
+        },
+        {
+          "chunk_id": "80b8d60d58f74ec288d4142fee1e4eed-p36-c0",
+          "quote": "Tensor Cores / GPU           NA                640               432"
+        }
+      ]
+    },
+    {
+      "id": "compute_throughput_fp16_dense",
+      "parameter": "compute_throughput",
+      "value": 312.0,
+      "unit": "TFLOP/s",
+      "scope": "A100 SXM4 device, dense FP16 Tensor Core with FP32 accumulate",
+      "variant": "a100_sxm4",
+      "precision": "fp16",
+      "mode": "dense",
+      "aggregation": "device",
+      "citations": [
+        {
+          "chunk_id": "80b8d60d58f74ec288d4142fee1e4eed-p24-c0",
+          "quote": "deliver up to 312 TFLOPS of dense mixed-precision FP16/FP32 performance"
+        },
+        {
+          "chunk_id": "80b8d60d58f74ec288d4142fee1e4eed-p15-c0",
+          "quote": "Peak FP16 Tensor Core\u00b9                 312 TFLOPS | 624 TFLOPS\u00b2"
+        },
+        {
+          "chunk_id": "80b8d60d58f74ec288d4142fee1e4eed-p36-c0",
+          "quote": "Peak FP16 Tensor TFLOPS with    NA                125                 312/624\u00b3"
+        },
+        {
+          "chunk_id": "80b8d60d58f74ec288d4142fee1e4eed-p15-c0",
+          "quote": "2 - Effective TFLOPS / TOPS using the new Sparsity feature"
+        }
+      ]
+    },
+    {
+      "id": "compute_throughput_fp16_sparse",
+      "parameter": "compute_throughput",
+      "value": 624.0,
+      "unit": "TFLOP/s",
+      "scope": "A100 SXM4 device, 2:4 sparse FP16 Tensor Core",
+      "variant": "a100_sxm4",
+      "precision": "fp16",
+      "mode": "sparse",
+      "aggregation": "device",
+      "citations": [
+        {
+          "chunk_id": "80b8d60d58f74ec288d4142fee1e4eed-p15-c0",
+          "quote": "Peak FP16 Tensor Core\u00b9                 312 TFLOPS | 624 TFLOPS\u00b2"
+        },
+        {
+          "chunk_id": "80b8d60d58f74ec288d4142fee1e4eed-p15-c0",
+          "quote": "2 - Effective TFLOPS / TOPS using the new Sparsity feature"
+        }
+      ]
+    },
+    {
+      "id": "fp16_fma_per_sm_per_clock",
+      "parameter": "compute_throughput",
+      "value": 1024.0,
+      "unit": "FP16 FMA/clk per SM",
+      "scope": "A100 SM dense FP16 Tensor Core",
+      "variant": "a100_sxm4",
+      "precision": "fp16",
+      "mode": "dense",
+      "aggregation": "component",
+      "citations": [
+        {
+          "chunk_id": "80b8d60d58f74ec288d4142fee1e4eed-p24-c0",
+          "quote": "each SM in A100 delivers 1024 FP16 FMA operations per clock"
+        }
+      ]
+    },
+    {
+      "id": "boost_clock",
+      "parameter": "boost_clock",
+      "value": 1410.0,
+      "unit": "MHz",
+      "scope": "A100 SXM4 GPU boost clock",
+      "variant": "a100_sxm4",
+      "precision": "unspecified",
+      "mode": "unspecified",
+      "aggregation": "device",
+      "citations": [
+        {
+          "chunk_id": "80b8d60d58f74ec288d4142fee1e4eed-p36-c0",
+          "quote": "GPU Boost Clock               1480 MHz          1530 MHz          1410 MHz"
+        },
+        {
+          "chunk_id": "80b8d60d58f74ec288d4142fee1e4eed-p54-c1",
+          "quote": "Performance @ GPU boost clock (1410 MHz)"
+        }
+      ]
+    },
+    {
+      "id": "memory_bandwidth",
+      "parameter": "memory_bandwidth",
+      "value": 1555.0,
+      "unit": "GB/s",
+      "scope": "A100 HBM2 device memory, 5-site HBM2",
+      "variant": "a100_sxm4",
+      "precision": "unspecified",
+      "mode": "unspecified",
+      "aggregation": "device",
+      "citations": [
+        {
+          "chunk_id": "80b8d60d58f74ec288d4142fee1e4eed-p40-c0",
+          "quote": "A100 implements a 5-site HBM2 memory subsystem with bandwidth of 1555 GB/sec"
+        }
+      ]
+    },
+    {
+      "id": "cache_capacity_l2",
+      "parameter": "cache_capacity",
+      "value": 40.0,
+      "unit": "MB",
+      "scope": "A100 L2 cache, device-wide",
+      "variant": "a100_sxm4",
+      "precision": "unspecified",
+      "mode": "unspecified",
+      "aggregation": "device",
+      "citations": [
+        {
+          "chunk_id": "80b8d60d58f74ec288d4142fee1e4eed-p40-c0",
+          "quote": "a 40 MB L2 cache that is almost 7x larger than that of Tesla V100"
+        },
+        {
+          "chunk_id": "80b8d60d58f74ec288d4142fee1e4eed-p2-c0",
+          "quote": "40 GB HBM2 and 40 MB L2 Cache"
+        }
+      ]
+    },
+    {
+      "id": "cache_bandwidth_l2",
+      "parameter": "cache_bandwidth",
+      "value": 5120.0,
+      "unit": "Bytes/clk",
+      "scope": "A100 L2 read bandwidth",
+      "variant": "a100_sxm4",
+      "precision": "unspecified",
+      "mode": "unspecified",
+      "aggregation": "device",
+      "citations": [
+        {
+          "chunk_id": "80b8d60d58f74ec288d4142fee1e4eed-p35-c1",
+          "quote": "The A100 L2 read bandwidth is 5120 Bytes/clk"
+        }
+      ]
+    },
+    {
+      "id": "cache_capacity_l1_shared",
+      "parameter": "cache_capacity",
+      "value": 192.0,
+      "unit": "KB/SM",
+      "scope": "A100 combined L1 data cache and shared memory, per SM",
+      "variant": "a100_sxm4",
+      "precision": "unspecified",
+      "mode": "unspecified",
+      "aggregation": "component",
+      "citations": [
+        {
+          "chunk_id": "80b8d60d58f74ec288d4142fee1e4eed-p33-c0",
+          "quote": "The combined capacity of the L1 data cache and shared memory is 192 KB/SM in A100"
+        },
+        {
+          "chunk_id": "80b8d60d58f74ec288d4142fee1e4eed-p15-c0",
+          "quote": "192 KB vs 128 KB per SM"
+        }
+      ]
+    },
+    {
+      "id": "cache_capacity_shared_max",
+      "parameter": "cache_capacity",
+      "value": 164.0,
+      "unit": "KB/SM",
+      "scope": "A100 maximum shared memory (SMEM) allocation per SM",
+      "variant": "a100_sxm4",
+      "precision": "unspecified",
+      "mode": "unspecified",
+      "aggregation": "component",
+      "citations": [
+        {
+          "chunk_id": "80b8d60d58f74ec288d4142fee1e4eed-p40-c0",
+          "quote": "A100 increases maximum SMEM allocation per SM 1.7x to 164 KB"
+        }
+      ]
+    },
+    {
+      "id": "cache_capacity_l2_slice",
+      "parameter": "cache_capacity",
+      "value": 512.0,
+      "unit": "KB",
+      "scope": "A100 L2 cache slice, 8 slices per memory controller",
+      "variant": "a100_sxm4",
+      "precision": "unspecified",
+      "mode": "unspecified",
+      "aggregation": "component",
+      "citations": [
+        {
+          "chunk_id": "80b8d60d58f74ec288d4142fee1e4eed-p35-c1",
+          "quote": "Eight 512 KB L2 slices are associated with each memory controller"
+        }
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "id": "hbm_to_l2",
+      "source": "hbm2_device_memory",
+      "target": "l2_cache",
+      "kind": "connects",
+      "variant": "a100_sxm4",
+      "citations": [
+        {
+          "chunk_id": "80b8d60d58f74ec288d4142fee1e4eed-p34-c0",
+          "quote": "The L2 cache caches reads from and writes to HBM2 (device) memory. HBM2 and L2 memory spaces are accessible to all SMs"
+        }
+      ]
+    },
+    {
+      "id": "gpu_contains_sms",
+      "source": "a100_sxm4_device",
+      "target": "a100_sm",
+      "kind": "contains",
+      "variant": "a100_sxm4",
+      "citations": [
+        {
+          "chunk_id": "80b8d60d58f74ec288d4142fee1e4eed-p20-c0",
+          "quote": "GA100 Full GPU with 128 SMs (A100 Tensor Core GPU has 108"
+        },
+        {
+          "chunk_id": "80b8d60d58f74ec288d4142fee1e4eed-p24-c0",
+          "quote": "the NVIDIA A100 Tensor Core GPU with its 108 SMs includes a total of 432 Tensor Cores"
+        }
+      ]
+    },
+    {
+      "id": "sm_to_shared_async",
+      "source": "a100_sm",
+      "target": "shared_memory",
+      "kind": "connects",
+      "variant": "a100_sxm4",
+      "citations": [
+        {
+          "chunk_id": "80b8d60d58f74ec288d4142fee1e4eed-p39-c0",
+          "quote": "loads data directly from global memory (typically from L2 cache and DRAM) into SM shared memory"
+        }
+      ]
+    },
+    {
+      "id": "l1_to_smem_combined",
+      "source": "l1_cache",
+      "target": "shared_memory",
+      "kind": "connects",
+      "variant": "a100_sxm4",
+      "citations": [
+        {
+          "chunk_id": "80b8d60d58f74ec288d4142fee1e4eed-p33-c0",
+          "quote": "Combining data cache and shared memory functionality into a single memory block provides the best overall performance for both types of memory accesses"
+        }
+      ]
+    }
+  ],
+  "missing": [
+    "Total A100 device memory capacity (40 GB stated only in table-of-contents overview line; not confirmed as per-product spec in gathered extracts)",
+    "L1 cache standalone bandwidth",
+    "Shared memory bandwidth",
+    "HBM2/DRAM latency",
+    "L2 latency",
+    "FP16 Tensor Core op timing beyond aggregate FMA/clk rates",
+    "SM clock per-op timing resolution for 256x256 GEMM tiling assumptions"
+  ],
+  "conflicts": []
+}

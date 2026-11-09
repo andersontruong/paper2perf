@@ -1,0 +1,30 @@
+[build-system]
+requires = ["uv_build>=0.9.18,<0.10.0"]
+build-backend = "uv_build"
+
+[project]
+name = "parabolic"
+version = "0.0.1"
+authors = [
+  { name="Anderson Truong", email="ander@stanford.edu" },
+  { name="Olivia Hsu", email="owhsu@stanford.edu" }
+]
+requires-python = ">=3.10"
+dependencies = [
+  "matplotlib",
+  "networkx",
+  "numpy",
+  # models/generate_graphs.py (development scripts, not part of the wheel) uses pydot.
+  "pydot",
+  # parabolic.viz renders region graphs through networkx's pygraphviz backend.
+  "pygraphviz",
+  "pysmt",
+  "sympy",
+  "torch>=2.8.0",
+  "transformers>=4.52.0",
+  # concretize.py solves with pysmt's default "z3" solver name.
+  "z3-solver",
+]
+
+[tool.uv.build-backend]
+namespace = true

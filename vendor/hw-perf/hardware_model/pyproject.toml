@@ -1,0 +1,16 @@
+[build-system]
+requires = ["uv_build>=0.9.18,<0.10.0"]
+build-backend = "uv_build"
+
+[project]
+name = "hw_model"
+version = "0.0.1"
+description = "Canonical hardware topology and resource models shared by the mapper and software model."
+requires-python = ">=3.10"
+dependencies = [
+  # hw_model.sproof converts SPROOF device configs, so the `sproof` sibling
+  # checkout is required at runtime. It is not published, so it cannot be a
+  # declared dependency here: requirements.txt installs it as an editable sibling
+  # (-e ./hardware_model/sparse-roof).
+  "networkx",
+]

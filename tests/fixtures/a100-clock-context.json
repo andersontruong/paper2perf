@@ -1,0 +1,26 @@
+{
+  "fact": {
+    "id": "a100_gpu_boost_clock",
+    "parameter": "boost_clock",
+    "value": 1410,
+    "unit": "MHz",
+    "scope": "A100 SXM4 GPU Boost clock in the A100 column, not a measured GEMM clock",
+    "variant": "A100-SXM4",
+    "precision": "unspecified",
+    "mode": "unspecified",
+    "aggregation": "device",
+    "citations": [
+      {
+        "chunk_id": "48f3a57752a9400ab0c6e9db4d1a3b24-p36-c0",
+        "quote": "GPU Boost Clock               1480 MHz          1530 MHz          1410 MHz"
+      }
+    ]
+  },
+  "chunk": {
+    "id": "48f3a57752a9400ab0c6e9db4d1a3b24-p36-c0",
+    "document": "48f3a57752a9400ab0c6e9db4d1a3b24",
+    "page": 36,
+    "text": "                                                    NVIDIA A100 Tensor Core GPU Architecture In-Depth\n\n\n\nTable 4.    Comparison of NVIDIA Data Center GPUs\n\n  GPU Features                NVIDIA Tesla P100   NVIDIA Tesla V100   NVIDIA A100\n  GPU Codename               GP100            GV100            GA100\n  GPU Architecture                NVIDIA Pascal         NVIDIA Volta         NVIDIA Ampere\n  GPU Board Form Factor        SXM             SXM2            SXM4\n  SMs                         56                80                108\n   TPCs                        28                40                54\n  FP32 Cores / SM               64                64                64\n  FP32 Cores / GPU              3584              5120              6912\n  FP64 Cores / SM (excl. Tensor)    32                32                32\n  FP64 Cores / GPU (excl. Tensor)   1792              2560              3456\n   INT32 Cores / SM             NA                64                64\n   INT32 Cores / GPU            NA                5120              6912\n   Tensor Cores / SM            NA                8                     42\n   Tensor Cores / GPU           NA                640               432\n  GPU Boost Clock               1480 MHz          1530 MHz          1410 MHz\n  Peak FP16 Tensor TFLOPS with    NA                125                 312/6243\n  FP16 Accumulate1\n  Peak FP16 Tensor TFLOPS with    NA                125                 312/6243\n  FP32 Accumulate1\n  Peak BF16 Tensor TFLOPS with    NA              NA                 312/6243\n  FP32 Accumulate1\n  Peak TF32 Tensor TFLOPS1       NA              NA                 156/3123\n  Peak FP64 Tensor TFLOPS1       NA              NA                  19.5\n  Peak INT8 Tensor TOPS1        NA              NA                 624/12483\n  Peak INT4 Tensor TOPS1        NA              NA                 1248/24963\n  Peak FP16 TFLOPS1 (non-Tensor)   21.2                 31.4               78\n  Peak BF16 TFLOPS1 (non-Tensor)  NA              NA                39\n  Peak FP32 TFLOPS1 (non-Tensor)   10.6                 15.7                 19.5\n  Peak FP64 TFLOPS1 (non-Tensor)   5.3                   7.8                   9.7\n  Peak INT32 TOPS1,4            NA                  15.7                 19.5\n   Texture Units                 224               320               432\n  Memory Interface                4096-bit HBM2       4096-bit",
+    "name": "nvidia-ampere-architecture-whitepaper.pdf"
+  }
+}

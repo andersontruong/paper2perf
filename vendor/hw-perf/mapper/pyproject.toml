@@ -1,0 +1,29 @@
+[build-system]
+requires = ["uv_build>=0.9.18,<0.10.0"]
+build-backend = "uv_build"
+
+[project]
+name = "dataflow_mapper"
+version = "0.0.1"
+authors = [
+  { name="Anderson Truong", email="ander@stanford.edu" },
+  { name="Olivia Hsu", email="owhsu@stanford.edu" }
+]
+requires-python = ">=3.10"
+dependencies = [
+  "networkx",
+  "numpy",
+  # dataflow_mapper.viz renders scope graphs through Graphviz via pydot.
+  "pydot",
+  "scipy",
+  "sympy",
+]
+
+[project.optional-dependencies]
+# Test-only: the suites build PyTorch models as fixtures and exercise the
+# viewer's matplotlib interaction.
+test = [
+  "matplotlib",
+  "pytest",
+  "torch",
+]

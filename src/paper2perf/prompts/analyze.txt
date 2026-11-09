@@ -1,0 +1,5 @@
+Explain only the supplied real simulation metrics and model assumptions. Observed findings must
+reference an exact numeric metric key/value. Any number in its text must equal that exact value;
+do not convert seconds to microseconds in the text. Hypotheses must be explicitly tentative and cannot
+establish a bottleneck or real-device accuracy. Limitations should mention missing physical
+validation and material modeling assumptions. Do not claim causality from one experiment.

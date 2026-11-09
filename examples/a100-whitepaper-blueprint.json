@@ -1,0 +1,73 @@
+{
+  "name": "Document-derived A100 aggregate hierarchy",
+  "variant": "A100-SXM4",
+  "memories": [
+    {
+      "id": "a100_hbm2",
+      "capacity": {
+        "fact_id": "a100_sxm_mem_capacity"
+      }
+    },
+    {
+      "id": "a100_l2_cache",
+      "capacity": {
+        "fact_id": "a100_l2_capacity"
+      }
+    },
+    {
+      "id": "a100_l1_smem",
+      "capacity": {
+        "fact_id": "a100_l1_smem_combined_capacity",
+        "count_fact_id": "a100_sm_count"
+      }
+    }
+  ],
+  "computes": [
+    {
+      "id": "a100_sm",
+      "kind": "matrix",
+      "throughput": {
+        "fact_id": "a100_fp16_tensor_dense_throughput"
+      }
+    }
+  ],
+  "links": [
+    {
+      "source": "a100_hbm2",
+      "target": "a100_l2_cache",
+      "relationship_id": "l2_connects_hbm2",
+      "bandwidth": {
+        "fact_id": "a100_sxm_mem_bandwidth"
+      }
+    },
+    {
+      "source": "a100_l2_cache",
+      "target": "a100_l1_smem",
+      "relationship_id": "l1_smem_connects_l2",
+      "bandwidth": {
+        "fact_id": "a100_l2_read_bandwidth"
+      }
+    },
+    {
+      "source": "a100_l2_cache",
+      "target": "a100_sm",
+      "relationship_id": "sm_connects_l2",
+      "bandwidth": {
+        "fact_id": "a100_l2_read_bandwidth"
+      }
+    },
+    {
+      "source": "a100_sm",
+      "target": "a100_l1_smem",
+      "relationship_id": "sm_contains_l1_smem",
+      "topology_basis": "containment_access",
+      "bandwidth": {}
+    }
+  ],
+  "proxy_bandwidth_fact_id": "a100_sxm_mem_bandwidth",
+  "workload": null,
+  "rationale": "Reference-only blueprint for the uploaded extraction. Pool per-SM capacity and compute into a single-device aggregate, retaining all extracted memory levels and connections. No hardware numbers are stored in this blueprint.",
+  "limitations": [
+    "This blueprint is specific to the fact and relationship IDs in the supplied extraction; new documents need a newly generated blueprint."
+  ]
+}
